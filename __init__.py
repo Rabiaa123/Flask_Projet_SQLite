@@ -60,9 +60,9 @@ def ReadBDD():
 
 @app.route('/consultation2/')
 def ReadBDD2():
-    conn = sqlite3.connect('bibliotheque1.db')
+    conn = sqlite3.connect('bibliotheque.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM livres;')
+    cursor.execute('SELECT * FROM Livres;')
     data = cursor.fetchall()
     conn.close()
     return render_template('read_data2.html', data=data)
