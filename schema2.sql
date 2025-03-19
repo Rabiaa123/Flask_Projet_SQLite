@@ -18,10 +18,10 @@ CREATE TABLE utilisateurs (
 -- Table pour gérer les livres
 CREATE TABLE livres (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, -- Colonne pour la date de création
     titre TEXT NOT NULL,
     auteur TEXT NOT NULL,
-    isbn TEXT UNIQUE NOT NULL,
+    isbn TEXT NOT NULL,
     genre TEXT,
     annee_publication INTEGER
 );
