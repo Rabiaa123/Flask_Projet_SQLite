@@ -16,9 +16,7 @@ CREATE TABLE utilisateurs (
 );
 
 -- Table pour gérer les livres
-CREATE TABLE livres (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, -- Colonne pour la date de création
+CREATE TABLE Livres (
     titre TEXT NOT NULL,
     auteur TEXT NOT NULL,
     isbn TEXT NOT NULL,
