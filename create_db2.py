@@ -18,12 +18,10 @@ cur.execute("INSERT INTO utilisateurs (nom, prenom, email, mot_de_passe, role) V
             ('MARTIN', 'Amandine', 'amandine.martin@example.com', 'password123', 'utilisateur'))
 
 # Insertion des livres de démonstration
-cur.execute("INSERT INTO livres (titre, auteur, isbn, genre, annee_publication) VALUES (?, ?, ?, ?, ?)",
-            ('Le Petit Prince', 'Antoine de Saint-Exupéry', '9782070408504', 'Littérature', 1943))
-cur.execute("INSERT INTO livres (titre, auteur, isbn, genre, annee_publication) VALUES (?, ?, ?, ?, ?)",
-            ('1984', 'George Orwell', '9782070368228', 'Science-Fiction', 1949))
-cur.execute("INSERT INTO livres (titre, auteur, isbn, genre, annee_publication) VALUES (?, ?, ?, ?, ?)",
-            ('Le Seigneur des Anneaux', 'J.R.R. Tolkien', '9782266282362', 'Fantasy', 1954))
+cur.execute("INSERT INTO livres (titre, auteur, isbn, genre, annee_publication) VALUES (?, ?, ?, ?, ?)",('Le Petit Prince', 'Antoine de Saint-Exupéry', '9782070408504', 'Littérature', 1943))
+cur.execute("INSERT INTO livres (titre, auteur, isbn, genre, annee_publication) VALUES (?, ?, ?, ?, ?)",('1984', 'George Orwell', '9782070368228', 'Science-Fiction', 1949))
+cur.execute("INSERT INTO livres (titre, auteur, isbn, genre, annee_publication) VALUES (?, ?, ?, ?, ?)",('Le Seigneur des Anneaux', 'J.R.R. Tolkien', '9782266282362', 'Fantasy', 1954))
+cur.execute("INSERT INTO livres (titre, auteur, isbn, genre, annee_publication) VALUES (?, ?, ?, ?, ?)",('SQL Base de donnée', 'Rabiaa', '1234567891011', 'test', 1988))
 
 # Insertion des stocks de démonstration
 cur.execute("INSERT INTO stocks (livre_id, quantite) VALUES (?, ?)", (1, 5))  # 5 exemplaires du Petit Prince
