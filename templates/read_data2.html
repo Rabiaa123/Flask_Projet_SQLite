@@ -1,26 +1,27 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Livres</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des livres</title>
 </head>
 <body>
-    <h1>Liste des Livres</h1>
-    <table>
+    <h1>Liste des livres</h1>
+    <table border="1">
         <tr>
             <th>Titre</th>
             <th>Auteur</th>
-            <th>Isbn</th>
+            <th>ISBN</th>
             <th>Genre</th>
-            <th>Annee_publication</th>
+            <th>Année de publication</th>
         </tr>
-        {% for row in data %}
+        {% for livre in data %}
         <tr>
-            <td>{{ row[0] }}</td>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
-            <td>{{ row[3] }}</td>
-            <td>{{ row[4] }}</td>
+            <td>{{ livre[1] }}</td>
+            <td>{{ livre[2] }}</td>
+            <td>{{ livre[3] }}</td>
+            <td>{{ livre[4] }}</td>
+            <td>{{ livre[5] }}</td>
         </tr>
         {% endfor %}
     </table>
