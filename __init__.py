@@ -76,6 +76,18 @@ def enregistrer_client():
     nom = request.form['nom']
     prenom = request.form['prenom']
 
+@app.route('/enregistrer_livre', methods=['GET'])
+def formulaire_livre():
+    return render_template('formulaire2.html')  # afficher le formulaire
+
+@app.route('/enregistrer_livre', methods=['POST'])
+def enregistrer_livre():
+    Titre = request.form['Titre']
+    Auteur = request.form['Auteur']
+    Isbn = request.form['Isbn']
+    Genre = request.form['Genre']
+    Annee_publication = request.form['Annee_publication']
+    
     # Connexion à la base de données
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
