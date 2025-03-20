@@ -1,26 +1,32 @@
-CREATE TABLE Livres (
-    ID_livre INT PRIMARY KEY,
-    Titre VARCHAR(255),
-    Auteur VARCHAR(255),
-    Annee_publication INT,
-    Quantite INT
+-- Activer le support des clés étrangères
+PRAGMA foreign_keys = ON;
+
+-- Créer la table Livres
+CREATE TABLE IF NOT EXISTS Livres (
+    ID_livre INTEGER PRIMARY KEY,
+    Titre TEXT NOT NULL,
+    Auteur TEXT NOT NULL,
+    Annee_publication INTEGER,
+    Quantite INTEGER
 );
 
-CREATE TABLE Utilisateurs (
-    ID_utilisateur INT PRIMARY KEY,
-    Nom VARCHAR(255),
-    Prenom VARCHAR(255),
-    Email VARCHAR(255),
+-- Créer la table Utilisateurs
+CREATE TABLE IF NOT EXISTS Utilisateurs (
+    ID_utilisateur INTEGER PRIMARY KEY,
+    Nom TEXT NOT NULL,
+    Prenom TEXT NOT NULL,
+    Email TEXT NOT NULL UNIQUE,
     Date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Emprunts (
-    ID_emprunt INT PRIMARY KEY,
-    ID_utilisateur INT,
-    ID_livre INT,
+-- Créer la table Emprunts
+CREATE TABLE IF NOT EXISTS Emprunts (
+    ID_emprunt INTEGER PRIMARY KEY,
+    ID_utilisateur INTEGER,
+    ID_livre INTEGER,
     Date_emprunt DATE,
     Date_retour_prevue DATE,
     Date_retour_effective DATE,
-    FOREIGN KEY (ID_utilisateur) REFERENCES Utilisateurs(ID_utilisateur),
-    FOREIGN KEY (ID_livre) REFERENCES Livres(ID_livre)
+    FOREIGN KEY (ID_utilisateur) REFERENCES Utilisateurs(ID_utilisateur) ON DELETE CASCADE,
+    FOREIGN KEY (ID_livre) REFERENCES Livres(ID_livre) ON DELETE CASCADE
 );
