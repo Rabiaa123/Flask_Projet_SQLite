@@ -59,7 +59,7 @@ import sqlite3
      conn.close()
      return render_template('read_data.html', data=data)
   
- @app.route('/consultation_livre/')
+ @app.route('/consultationlivre/')
  def ReadBDDlivre():
      conn = sqlite3.connect('biblioteque.db')
      cursor = conn.cursor()
