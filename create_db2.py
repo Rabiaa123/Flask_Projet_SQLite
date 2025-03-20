@@ -9,15 +9,39 @@ with open('schema2.sql', 'r') as f:
 
 cur = connection.cursor()
 
-# Insertion des livres dans la table "livres"
-cur.execute("INSERT INTO livres (titre, auteur, isbn, genre, annee_publication) VALUES (?, ?, ?, ?, ?)",
-            ('Emilie', 'Victor', '1234567890', 'Roman', 2024))
-cur.execute("INSERT INTO livres (titre, auteur, isbn, genre, annee_publication) VALUES (?, ?, ?, ?, ?)",
-            ('Didier', 'Laurent', '0987654321', 'Essai', 2023))
+# Liste des livres à insérer
+livres = [
+    (1, 'Le Petit Prince', 'Antoine de Saint-Exupéry', 1943, 15),
+    (2, '1984', 'George Orwell', 1949, 8),
+    (3, "L'Étranger", 'Albert Camus', 1942, 12),
+    (4, 'Harry Potter à l\'école des sorciers', 'J.K. Rowling', 1997, 29),
+    (5, 'Les Misérables', 'Victor Hugo', 1862, 5),
+    (6, 'La Peste', 'Albert Camus', 1947, 10)
+]
+
+# Insertion des livres dans la table Livres
+for livre in livres:
+    cur.execute("""
+        INSERT INTO Livres (ID_livre, Titre, Auteur, Annee_publication, Quantite)
+        VALUES (?, ?, ?, ?, ?)
+    """, livre)
+
+# Liste des stocks à insérer
+stocks = [
+    (1, 10),
+    (2, 5),
+    (3, 19),
+    (4, 2),
+    (5, 16),
+    (6, 10)
+]
 
 # Insertion des stocks associés aux livres
-cur.execute("INSERT INTO stocks (livre_id, quantite) VALUES (?, ?)", (1, 10))
-cur.execute("INSERT INTO stocks (livre_id, quantite) VALUES (?, ?)", (2, 5))
+for stock in stocks:
+    cur.execute(
+        INSERT INTO stocks (ID_livre, Quantite)
+        VALUES (?, ?)
+    , stock)
 
 # Validation des modifications et fermeture de la connexion
 connection.commit()
