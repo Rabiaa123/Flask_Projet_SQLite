@@ -58,7 +58,16 @@ import sqlite3
      data = cursor.fetchall()
      conn.close()
      return render_template('read_data.html', data=data)
- 
+  
+ @app.route('/consultation_livre/')
+ def ReadBDDlivre():
+     conn = sqlite3.connect('databaselivre.db')
+     cursor = conn.cursor()
+     cursor.execute('SELECT * FROM livres;')
+     data = cursor.fetchall()
+     conn.close()
+     return render_template('read_datalivre.html', data=data)
+  
  @app.route('/enregistrer_client', methods=['GET'])
  def formulaire_client():
      return render_template('formulaire.html')  # afficher le formulaire
