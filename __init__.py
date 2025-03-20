@@ -61,7 +61,7 @@ import sqlite3
   
  @app.route('/consultation_livre/')
  def ReadBDDlivre():
-     conn = sqlite3.connect('databaselivre.db')
+     conn = sqlite3.connect('biblioteque.db')
      cursor = conn.cursor()
      cursor.execute('SELECT * FROM livres;')
      data = cursor.fetchall()
